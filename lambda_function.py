@@ -28,7 +28,7 @@ def lambda_handler(event, context):
         for file_path in modified_files:
             pos = file_path.find('/')
             if pos > 0:
-                # パスにディレクトリを含む→プロジェクト名を確認
+                # パスにフォルダを含む→プロジェクト名を確認
                 project_name = file_path[:pos]
                 if common.count(project_name) > 0:
                     # 共有プロジェクト名であれば全て呼び出しパイプラインに含める
