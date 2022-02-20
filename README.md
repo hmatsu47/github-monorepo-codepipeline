@@ -1,6 +1,6 @@
 # github-monorepo-codepipeline
 
-- モノレポ GitHub (Enterprise) で AWS CodePipeline を呼び出す Lambda Function
+- モノレポ GitHub (Enterprise) で GitHub Webhooks を使って AWS CodePipeline を呼び出す Lambda Function
 
 ## これは何？
 
