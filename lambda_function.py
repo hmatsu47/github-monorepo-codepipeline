@@ -17,9 +17,10 @@ def lambda_handler(event, context):
     ref = body_json['ref']
     if ref == os.environ['trigger_branch'] and len(body_json['commits']) > 0:
         # 指定ブランチへのコミットの場合だけ処理
-        added_files = body_json['commits'][0]['added']
-        removed_files = body_json['commits'][0]['removed']
-        modified_files = body_json['commits'][0]['modified'] + added_files + removed_files
+        commits = body_json['commits']
+        modified_files = []
+        for commit in commits:
+            modified_files = modified_files + commit['added'] + commit['removed'] + commit['modified']
         print('added / removed / modified : {}'.format(modified_files))
         # どのプロジェクトのビルドを行うかファイルパスから判断
         includes = ['project1', 'project2', 'project3']
